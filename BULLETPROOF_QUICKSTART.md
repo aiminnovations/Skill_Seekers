@@ -1,4 +1,4 @@
-# Bulletproof Quick Start Guide
+#  Bulletproof Quick Start Guide
 
 **Target Audience:** Complete beginners | Never used Python/git before? Start here!
 
@@ -11,6 +11,7 @@
 ## 📋 What You'll Need
 
 Before starting, you need:
+
 - A computer (macOS, Linux, or Windows with WSL)
 - Internet connection
 - 30 minutes of time
@@ -36,6 +37,7 @@ python3 --version
 ### Install Python
 
 #### macOS:
+
 ```bash
 # Install Homebrew (if not installed)
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -45,33 +47,39 @@ brew install python3
 ```
 
 **Verify:**
+
 ```bash
 python3 --version
 # Should show: Python 3.11.x or similar
 ```
 
 #### Linux (Ubuntu/Debian):
+
 ```bash
 sudo apt update
 sudo apt install python3 python3-pip
 ```
 
 **Verify:**
+
 ```bash
 python3 --version
 pip3 --version
 ```
 
 #### Windows:
+
 1. Download Python from: https://www.python.org/downloads/
 2. Run installer
 3. **IMPORTANT:** Check "Add Python to PATH" during installation
 4. Open Command Prompt and verify:
-```bash
-python --version
-```
+   
+   ```bash
+   python --version
+   ```
 
 **✅ Success looks like:**
+
 ```
 Python 3.11.5
 ```
@@ -91,19 +99,23 @@ git --version
 **❌ If not installed:**
 
 #### macOS:
+
 ```bash
 brew install git
 ```
 
 #### Linux:
+
 ```bash
 sudo apt install git
 ```
 
 #### Windows:
+
 Download from: https://git-scm.com/download/win
 
 **Verify:**
+
 ```bash
 git --version
 # Should show: git version 2.x.x
@@ -116,6 +128,7 @@ git --version
 ### Choose Where to Put It
 
 Pick a location for the project. Good choices:
+
 - macOS/Linux: `~/Projects/` or `~/Documents/`
   - Note: `~` means your home directory (`$HOME` or `/Users/yourname` on macOS, `/home/yourname` on Linux)
 - Windows: `C:\Users\YourName\Projects\`
@@ -135,6 +148,7 @@ cd Skill_Seekers
 ```
 
 **✅ Success looks like:**
+
 ```
 Cloning into 'Skill_Seekers'...
 remote: Enumerating objects: 245, done.
@@ -142,6 +156,7 @@ remote: Counting objects: 100% (245/245), done.
 ```
 
 **Verify you're in the right place:**
+
 ```bash
 pwd
 # Should show something like:
@@ -154,6 +169,7 @@ ls
 ```
 
 **❌ If `git clone` fails:**
+
 ```bash
 # Check internet connection
 ping google.com
@@ -183,9 +199,11 @@ source venv/bin/activate  # macOS/Linux
 ```
 
 **✅ Success looks like:**
+
 ```
 (venv) username@computer Skill_Seekers %
 ```
+
 Notice `(venv)` appears in your prompt - this means the virtual environment is active!
 
 ```bash
@@ -197,27 +215,32 @@ pip freeze > requirements.txt
 ```
 
 **✅ Success looks like:**
+
 ```
 Successfully installed requests-2.32.5 beautifulsoup4-4.14.2 pytest-8.4.2 ...
 ```
 
 **Optional - Only if you want API-based enhancement (not needed for LOCAL enhancement):**
+
 ```bash
 pip install anthropic
 ```
 
 **Important Notes:**
+
 - **Every time** you open a new terminal to use Skill Seeker, run `source venv/bin/activate` first
 - You'll know it's active when you see `(venv)` in your terminal prompt
 - To deactivate later: just type `deactivate`
 
 **❌ If python3 not found:**
+
 ```bash
 # Try without the 3
 python -m venv venv
 ```
 
 **❌ If permission denied:**
+
 ```bash
 # Virtual environment approach doesn't need sudo - you might have the wrong path
 # Make sure you're in the Skill_Seekers directory:
@@ -240,11 +263,13 @@ skill-seekers scrape --help
 ```
 
 **✅ Success looks like:**
+
 ```
 usage: doc_scraper.py [-h] [--config CONFIG] [--interactive] ...
 ```
 
 **❌ If you see "No such file or directory":**
+
 ```bash
 # Check you're in the right directory
 pwd
@@ -280,6 +305,7 @@ skill-seekers scrape --config configs/test.json
 ```
 
 **What happens:**
+
 1. Scrapes 5 pages from Tailwind CSS docs
 2. Creates `output/test-skill/` directory
 3. Generates SKILL.md and reference files
@@ -287,6 +313,7 @@ skill-seekers scrape --config configs/test.json
 **⏱️ Time:** ~30 seconds
 
 **✅ Success looks like:**
+
 ```
 Scraping: https://tailwindcss.com/docs/installation
 Page 1/5: Installation
@@ -305,6 +332,7 @@ skill-seekers scrape --config configs/react.json --max-pages 50
 **⏱️ Time:** ~5 minutes
 
 **What you get:**
+
 - `output/react/SKILL.md` - Main skill file
 - `output/react/references/` - Organized documentation
 
@@ -329,6 +357,7 @@ skill-seekers package output/test-skill/
 ```
 
 **✅ Success looks like:**
+
 ```
 ✅ Skill packaged successfully!
 📦 Created: output/test-skill.zip
@@ -406,6 +435,7 @@ If you have Claude Code installed:
 **Problem:** `python3: command not found`
 
 **Solution:** Python not installed or not in PATH
+
 - macOS/Linux: Reinstall Python with brew/apt
 - Windows: Reinstall Python, check "Add to PATH"
 - Try `python` instead of `python3`
@@ -415,6 +445,7 @@ If you have Claude Code installed:
 **Problem:** Can't install packages or run scripts
 
 **Solution:**
+
 ```bash
 # Use --user flag
 pip3 install --user requests beautifulsoup4
@@ -428,6 +459,7 @@ chmod +x cli/doc_scraper.py
 **Problem:** Can't find cli/doc_scraper.py
 
 **Solution:** You're not in the right directory
+
 ```bash
 # Go to the Skill_Seekers directory
 cd ~/Projects/Skill_Seekers  # Adjust your path
@@ -442,6 +474,7 @@ ls cli/
 **Problem:** Missing Python packages
 
 **Solution:**
+
 ```bash
 # Install dependencies again
 pip3 install requests beautifulsoup4
@@ -455,6 +488,7 @@ pip3 install --user requests beautifulsoup4
 **Problem:** Takes forever or gets errors
 
 **Solution:**
+
 ```bash
 # Use smaller max_pages for testing
 skill-seekers scrape --config configs/react.json --max-pages 10
@@ -504,11 +538,13 @@ skill-seekers package output/react/
 ```
 
 **Common locations:**
+
 - **Configs:** `configs/*.json`
 - **Output:** `output/skill-name/`
 - **Packaged skills:** `output/skill-name.zip`
 
 **Time estimates:**
+
 - Small skill (5-10 pages): 30 seconds
 - Medium skill (50-100 pages): 3-5 minutes
 - Large skill (500+ pages): 15-30 minutes
